@@ -9,9 +9,8 @@ package by.itAcademy.homeworks.enums;
 
 public class Task35 {
     public static void main(String[] args) {
-        Season[] seasons = Season.values();
-        for(Season season: seasons){
-            System.out.println(season);
+        for (Season season : Season.values()) {
+            System.out.println(Season.infoOutPut(season));
         }
     }
-    }
+}
