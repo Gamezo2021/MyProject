@@ -12,19 +12,30 @@ import java.util.List;
 
 public class Task41 {
     public static void main(String[] args) {
-        List<Integer> marks = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            marks.add((int) (Math.random() * 10) + 1);
+        int numberOfStudent = 20;
+        ArrayList<Integer> assessment = new ArrayList<>();
+        fillArray(assessment, numberOfStudent);
+        System.out.println("Исходный список оценок: " + assessment);
+        System.out.println("Максимальная оценка: " + maxAssessment(assessment));
+
+    }
+    public static ArrayList<Integer> fillArray(ArrayList<Integer> assessment, int numberOfStudent){
+        for (int i = 0 ; i <= numberOfStudent ; i++){
+            assessment.add((int) (Math.random() * 11));
         }
-        System.out.println(marks);
-        Iterator<Integer> iterator = marks.iterator();
-        int max = marks.get(0);
-        while (iterator.hasNext()) {
-            int a = iterator.next();
-            if (a > max) {
-                max = a;
-            }
+        return assessment;
+    }
+    public static int maxAssessment(ArrayList<Integer> assessment){
+        int maxAssessment = assessment.get(0);
+        Iterator<Integer> iterator = assessment.iterator();
+        while (iterator.hasNext()){
+           int i = iterator.next();
+           if (i > maxAssessment){
+               maxAssessment = i;
+           }
         }
-        System.out.println(max);
+        return maxAssessment;
+
+
     }
 }

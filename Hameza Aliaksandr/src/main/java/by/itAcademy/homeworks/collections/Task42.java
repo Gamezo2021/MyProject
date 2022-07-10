@@ -1,8 +1,6 @@
 package by.itAcademy.homeworks.collections;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Задание 42
@@ -12,18 +10,29 @@ import java.util.Scanner;
 
 public class Task42 {
     public static void main(String[] args) {
-        System.out.print("Введите текст: ");
+        System.out.println("Введите слово: ");
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
-        String[] text = str.split(" ");
-        Map<String, Integer> textCount = new HashMap<>();
-        for (String word : text) {
-            if (textCount.containsKey(word)) {
-                textCount.put(word, textCount.get(word) + 1);
+        System.out.println("Map " + getMap(getList(str)));
+    }
+
+    // преобразование строки в ArrayList
+    public static List<String> getList(String str) {
+        List<String> list = new ArrayList<>();
+        list = Arrays.asList(str.split(" "));
+        return list;
+    }
+
+    // Преобразование ArrayList в HashMap
+    public static Map<String, Integer> getMap(List<String> arrayList) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String word : arrayList) {
+            if (map.containsKey(word)) {
+                map.put(word, map.get(word) + 1);
             } else {
-                textCount.put(word, 1);
+                map.put(word, 1);
             }
         }
-        System.out.println(textCount);
+        return map;
     }
 }

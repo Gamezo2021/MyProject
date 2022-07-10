@@ -12,19 +12,27 @@ import java.util.Set;
 
 public class Task40 {
     public static void main(String[] args) {
-        List<Integer> collection = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            collection.add((int) (Math.random() * 100) + 1);
-            System.out.println(collection);
-        }
-            Set<Integer> collection2 = new LinkedHashSet<>();
-            collection2.addAll(collection);
-            collection.clear();
-            for (Integer i : collection2) {
-                collection.add(i);
-            }
-            collection2.clear();
-            System.out.println(collection);
+        int arrayObject = 10;
+        ArrayList<Integer> array = new ArrayList<>();
+        fillArray(array, arrayObject);
+        System.out.println("Исходный массив: " + array);
+        System.out.println("Уникальный массив: " + deleteRecurring(array));
 
-        }
+
     }
+    public static ArrayList<Integer> fillArray(ArrayList<Integer> array, int arrayObject){
+        for (int i = 0 ; i <= arrayObject ; i++){
+            array.add((int) (Math.random() * 11));
+        }
+        return array;
+    }
+    public static ArrayList<Integer> deleteRecurring (ArrayList<Integer> array){
+        ArrayList<Integer> newArray = new ArrayList<>();
+        for (int i = 0; i <= array.size() - 1; i++) {
+            if (!newArray.contains(array.get(i))) {
+                newArray.add(array.get(i));
+            }
+        }
+            return newArray;
+    }
+}
