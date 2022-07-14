@@ -43,7 +43,7 @@ public class Task49 {
         int ravareg;
         System.out.println("Прочитано из файла");
         while (true) {
-            System.out.println(res + "");
+            System.out.println(res + " ");
             sum = sum + res;
             try {
                 res = dataInputStream.readInt();
@@ -56,6 +56,6 @@ public class Task49 {
             dataInputStream.close();
         }
         ravareg = sum / 20;
-        System.out.println("Среднее арифмитическое :" + ravareg);
+        System.out.println("\n" + "Среднее арифмитическое :" + ravareg);
     }
 }
